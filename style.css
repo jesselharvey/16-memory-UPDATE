@@ -1,0 +1,16 @@
+#gridContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 10% auto;
+  width: 95%;
+}
+.card {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000000;
+  margin: 0.5% 0.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
