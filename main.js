@@ -33,16 +33,40 @@ let grid = []
 // console.log(valuesArr)
 // document.querySelector("#gridContainer").innerHTML = valuesArr
 
+//this function shuffles the array so my cards are randomly placed
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1))
+    var temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+}
+
+shuffleArray(valuesArr)
+
+//this function is where I place and define the cards onto the actual HTML
 for (let i = 0; i < valuesArr.length; i++) {
   let value = valuesArr[i]
   let gridFunct = (x) => {
     // let value = valuesArr[i]
-    return grid.push(`<div class="card"><span>${x}</span></div>`)
+    return grid.push(
+      `<div class="card"><span class="item hidden ${x}">${x}</span></div>`
+    )
   }
   gridFunct(value)
   document.querySelector("#gridContainer").innerHTML = grid.join("")
   // return grid.push(`<div class="card"><span>${item}</span></div>`)
 }
+
+let match = (e) => {
+  console.log(e.target)
+}
+
+let card = document.querySelector(".card")
+let container = document.querySelector("#gridContainer")
+
+container.addEventListener("click", match)
 
 // console.log(grid)
 // console.log(valuesArr[i])
