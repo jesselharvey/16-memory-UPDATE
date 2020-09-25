@@ -61,8 +61,10 @@ for (let i = 0; i < valuesArr.length; i++) {
 
 let match = (e) => {
   console.log(e.target)
+  let item = e.target.childNodes
+  console.log(item.length, item)
 }
-
+let innerContent = document.querySelector(".item")
 let card = document.querySelector(".card")
 let container = document.querySelector("#gridContainer")
 
