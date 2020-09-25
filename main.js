@@ -62,7 +62,10 @@ for (let i = 0; i < valuesArr.length; i++) {
 let match = (e) => {
   console.log(e.target)
   let item = e.target.childNodes
-  console.log(item.length, item)
+  for (let i = 0; i < item.length; i++) {
+    console.log(item[i])
+
+  }
 }
 let innerContent = document.querySelector(".item")
 let card = document.querySelector(".card")
