@@ -62,10 +62,16 @@ for (let i = 0; i < valuesArr.length; i++) {
 let match = (e) => {
   console.log(e.target)
   let item = e.target.childNodes
-  for (let i = 0; i < item.length; i++) {
-    console.log(item[i])
-
+  console.log(item[0])
+  if (item[0].classlist.contains("item")) {
+    console.log(true)
   }
+  // for (let i = 0; i < item.length; i++) {
+  //   console.log(item[i])
+  //   if (item[i].classlist.contains("hidden")) {
+  //     // console.log("if")
+  //   }
+  // }
 }
 let innerContent = document.querySelector(".item")
 let card = document.querySelector(".card")
