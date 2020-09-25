@@ -146,29 +146,67 @@ for (let i = 0; i < valuesArr.length; i++) {
   let gridFunct = (x) => {
     // let value = valuesArr[i]
     return grid.push(
-      `<div class="card"><span class="item hidden ${x}">${x}</span></div>`
+      `<div class="card"><span class="item hidden" data-value="${x}">${x}</span></div>`
     )
   }
   gridFunct(value)
   document.querySelector("#gridContainer").innerHTML = grid.join("")
 }
 
-matchArr = []
+// matchArr = []
+flipped1 = []
+flipped2 = []
+
 
 let match = (e) => {
   let divEl = e.target.closest("div")
   let item = divEl.children[0]
-  console.log(divEl)
-  console.log(item.innerHTML)
+  // console.log(divEl)
+  // console.log(item.innerText)
 
-  matchArr.push(item.innerHTML)
-  console.log(matchArr)
+  console.log(item.dataset.value)
 
-  if (matchArr.length >= 2) {
-    
-    matchArr.splice(0, 2)
-    // console.log("yeeet")
-  }
+  // function flip(x) {
+  //   x.classList.remove("hidden")
+  //   if (!x.classList.contains("hidden")) {
+  //    x.classList.add("flipped")
+  //     // flipped1.push(x.innerText)
+  //   }
+  //   console.log(x)
+  // }
+  // flip(item)
+
+  // if (item.classList.contains("flipped")) {
+  //   container.removeEventListener("click", match)
+  // }
+
+  // function flipSecond(y) {
+  //   y.classList.remove("hidden")
+  //   if (!y.classList.contains("hidden") && !y.classList.contains("flipped1")) {
+  //     y.classList.add("flipped2")
+  //   }
+  // }
+  // flipSecond(item)
+  // console.log(item)
+
+  // matchArr.push(item.innerText)
+  // console.log(item.classList)
+
+  // if (item.classList.includes(item.innerText)) {
+  //   console.log(true)
+  // }
+
+  // if (matchArr.length >= 2) {
+  //   if (matchArr[0] === matchArr[1]) {
+  //     item.classList.includes(matchArr)
+  //     // matchArr.splice(0, 2)
+  //   } else if (!matchArr[0] === matchArr[1]) {
+
+  //     // matchArr.splice(0, 2)
+  //   }
+  //   matchArr.splice(0, 2)
+  //   // console.log("yeeet")
+  // }
 
   // if (el) {
   //   item.classList.remove("hidden")
