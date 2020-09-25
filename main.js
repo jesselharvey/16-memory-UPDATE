@@ -15,25 +15,121 @@
 // if value 1 = value 2 then keep the xValue
 // no matter what clear the arr
 
-const valuesArr = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9]
+// const valuesArr = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9]
 
-// console.log(valuesArr)
-let grid = []
-// let gridFunct = (...valuesArr) => {
-//   valuesArr.map().forEach(value => {
-//     console.log(value)
-//     return grid.push(`<div class="card"><span>${value}</span></div>`)
-//   })
+// // console.log(valuesArr)
+// let grid = []
+// // let gridFunct = (...valuesArr) => {
+// //   valuesArr.map().forEach(value => {
+// //     console.log(value)
+// //     return grid.push(`<div class="card"><span>${value}</span></div>`)
+// //   })
+// //   // return grid.push(`<div class="card"><span>${item}</span></div>`)
+// // }
+
+// // gridFunct(valuesArr)
+// // valuesArr.foreach(gridFunct(item))
+// // console.log(grid)
+// // console.log(valuesArr)
+// // document.querySelector("#gridContainer").innerHTML = valuesArr
+
+// //this function shuffles the array so my cards are randomly placed
+// function shuffleArray(array) {
+//   for (var i = array.length - 1; i > 0; i--) {
+//     var j = Math.floor(Math.random() * (i + 1))
+//     var temp = array[i]
+//     array[i] = array[j]
+//     array[j] = temp
+//   }
+// }
+
+// shuffleArray(valuesArr)
+
+// //this function is where I place and define the cards onto the actual HTML
+// for (let i = 0; i < valuesArr.length; i++) {
+//   let value = valuesArr[i]
+//   let gridFunct = (x) => {
+//     // let value = valuesArr[i]
+//     return grid.push(
+//       `<div class="card"><span class="item hidden ${x}">${x}</span></div>`
+//     )
+//   }
+//   gridFunct(value)
+//   document.querySelector("#gridContainer").innerHTML = grid.join("")
 //   // return grid.push(`<div class="card"><span>${item}</span></div>`)
 // }
 
-// gridFunct(valuesArr)
-// valuesArr.foreach(gridFunct(item))
-// console.log(grid)
-// console.log(valuesArr)
-// document.querySelector("#gridContainer").innerHTML = valuesArr
+// let match = (e) => {
+//   // console.log(e.target)
+//   let el = e.target
+//   let item = e.target.children[0]
+//   console.log(el)
+//   // console.log(item)
+//   // if (item[0]) {
+//   //   console.log(true)
+//   // }
+//   console.log(item)
 
-//this function shuffles the array so my cards are randomly placed
+//   // if (item.classList.contains("item")) {
+//   //   console.log(item.classList.value)
+//   // }
+
+//   if (el) {
+//     item.classList.remove("hidden")
+//   }
+
+//   // console.log(innerContent)
+//   // if (el.clicked == true) {
+//   //   console.log("yeeet")
+//   //   // innerContent.classList.remove("hidden")
+//   // }
+//   // for (let i = 0; i < item.length; i++) {
+//   //   console.log(item[i])
+//   //   // if (item[i].classlist.contains("hidden")) {
+//   //   //   // console.log("if")
+//   //   // }
+//   // }
+// }
+// let innerContent = document.querySelector(".item")
+// let card = document.querySelector(".card")
+// let container = document.querySelector("#gridContainer")
+
+// container.addEventListener("click", match)
+
+// console.log(grid)
+// console.log(valuesArr[i])
+
+//................................................................
+//.......................................S........................
+//.TTTTTTTTTTTTTTT.EEEEEEEEEEEEEE....SSSSSSSSS....TTTTTTTTTTTTTT..
+//.TTTTTTTTTTTTTTT.EEEEEEEEEEEEEE...SSSSSSSSSSS...TTTTTTTTTTTTTT..
+//.TTTTTTTTTTTTTTT.EEEEEEEEEEEEEE..SSSSSSSSSSSSS..TTTTTTTTTTTTTT..
+//.TTTTTTTTTTTTTTT.EEEEEEEEEEEEEE..SSSSSSSSSSSSSS.TTTTTTTTTTTTTT..
+//......TTTTT......EEEEE..........SSSSSS...SSSSSS......TTTTT......
+//......TTTTT......EEEEE..........SSSSS.....SSSSS......TTTTT......
+//......TTTTT......EEEEE...........SSSSSS..............TTTTT......
+//......TTTTT......EEEEEEEEEEEEE...SSSSSSSSSS..........TTTTT......
+//......TTTTT......EEEEEEEEEEEEE...SSSSSSSSSSSSS.......TTTTT......
+//......TTTTT......EEEEEEEEEEEEE....SSSSSSSSSSSSS......TTTTT......
+//......TTTTT......EEEEEEEEEEEEE......SSSSSSSSSSS......TTTTT......
+//......TTTTT......EEEEE.................SSSSSSSS......TTTTT......
+//......TTTTT......EEEEE..........SSSSS.....SSSSSS.....TTTTT......
+//......TTTTT......EEEEE..........SSSSS......SSSSS.....TTTTT......
+//......TTTTT......EEEEEEEEEEEEEE.SSSSSSS..SSSSSS......TTTTT......
+//......TTTTT......EEEEEEEEEEEEEE..SSSSSSSSSSSSSS......TTTTT......
+//......TTTTT......EEEEEEEEEEEEEE..SSSSSSSSSSSSS.......TTTTT......
+//......TTTTT......EEEEEEEEEEEEEE...SSSSSSSSSSS........TTTTT......
+//....................................SSSSSSSS....................
+//................................................................
+
+const valuesArr = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9]
+
+let innerContent = document.querySelector(".item")
+let card = document.querySelector(".card")
+let container = document.querySelector("#gridContainer")
+
+let grid = []
+
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1))
@@ -45,7 +141,6 @@ function shuffleArray(array) {
 
 shuffleArray(valuesArr)
 
-//this function is where I place and define the cards onto the actual HTML
 for (let i = 0; i < valuesArr.length; i++) {
   let value = valuesArr[i]
   let gridFunct = (x) => {
@@ -56,28 +151,34 @@ for (let i = 0; i < valuesArr.length; i++) {
   }
   gridFunct(value)
   document.querySelector("#gridContainer").innerHTML = grid.join("")
-  // return grid.push(`<div class="card"><span>${item}</span></div>`)
 }
+
+matchArr = []
 
 let match = (e) => {
-  console.log(e.target)
-  let item = e.target.childNodes
-  console.log(item[0])
-  if (item[0].classlist.contains("item")) {
-    console.log(true)
+  let divEl = e.target.closest("div")
+  let item = divEl.children[0]
+  console.log(divEl)
+  console.log(item.innerHTML)
+
+  matchArr.push(item.innerHTML)
+  console.log(matchArr)
+
+  if (matchArr.length >= 2) {
+    
+    matchArr.splice(0, 2)
+    // console.log("yeeet")
   }
-  // for (let i = 0; i < item.length; i++) {
-  //   console.log(item[i])
-  //   if (item[i].classlist.contains("hidden")) {
-  //     // console.log("if")
-  //   }
+
+  // if (el) {
+  //   item.classList.remove("hidden")
   // }
 }
-let innerContent = document.querySelector(".item")
-let card = document.querySelector(".card")
-let container = document.querySelector("#gridContainer")
-
 container.addEventListener("click", match)
 
-// console.log(grid)
-// console.log(valuesArr[i])
+// can i pull the value? Maybe looking at the classes is unnecessary and redundant
+// Because if i can i just add the sheer value of the innerContent and then push that,
+//  and then i can compare value1 and value2
+
+// if value1 = value2 then keep the values shown, and empty matchArr
+// otherwise, hide both again, and empty matchArr
