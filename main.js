@@ -124,9 +124,11 @@
 
 const valuesArr = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9]
 
-let innerContent = document.querySelector(".item")
-let cards = document.querySelectorAll(".card")
-let container = document.querySelector("#gridContainer")
+// let innerContent = document.querySelector(".item")
+// let card = document.querySelectorAll(".card")
+// console.log(card)
+// let cards = [...card]
+// let container = document.querySelector("#gridContainer")
 
 let grid = []
 
@@ -143,64 +145,107 @@ shuffleArray(valuesArr)
 
 for (let i = 0; i < valuesArr.length; i++) {
   let value = valuesArr[i]
+  // console.log(valuesArr[i])
   let gridFunct = (x) => {
     // let value = valuesArr[i]
     return grid.push(
-      `<div class="card"><span class="item hidden" data-value="${x}">${x}</span></div>`
+      `<div class="card hidden" data-value="${x}">${x}</div>`
     )
   }
   gridFunct(value)
   document.querySelector("#gridContainer").innerHTML = grid.join("")
 }
 
+let cards = document.querySelectorAll(".card")
+// console.log(cards)
+
 matchArr = []
 flipped = []
 // flipped2 = []
 
 // let hasBeenFlipped = false
-// let firstCard, secondCard
+let firstCard = null
+let secondCard = null
 
+// add event listener inside of the match function??
+// item.addEventListener('click', flip)
 let match = (e) => {
-  console.log()
+  let el = e.target
+  // let item = el.children[0]
+  console.log(el)
+    // console.log(item)
+    // console.log(this)
+  matchArr.push(el.dataset.value)
+  console.log(matchArr)
+  // let flip = () => {
+  if (matchArr.length < 3 && matchArr.length > 0) {
+
+    // firstCard = this
+    // console.log(this)
+    return el.classList.remove("hidden") & el.classList.add("flipped")
+    // checkMatch(el)
+
+    // matchArr.push(el.dataset.value)
+
+    // firstCard = this
+    // console.log(firstCard)
+  }
+  checkMatch()
+}
+let checkMatch = () => {
+  if (matchArr.length === 2) {
+    // if (!el.classList.contains("hidden")) {
+    // flip() = null
+    // cards.removeEventListener("click", match)
+    // cards.forEach((card) => card.removeEventListener("click", match))
+    // }
+    if (matchArr[0] === matchArr[1]) {
+      matched(el)
 
 
-  // let divEl = e.target.closest("div")
-  // let item = divEl.children[0]
-  // console.log(divEl)
-  // console.log(item.innerText)
+    } else if (matchArr[0] !== matchArr[1]) {
+      unmatched(el)
 
-  // item.classList.remove("hidden")
-  // item.classList.add("flipped")
+
+      // unmatched()
+    }
+    // console.log("there is two")
+  }
+}
+  // flip(el)
+  let matched = (y) => {
+    console.log("matched")
+    
+    // if (y.classList.includes("flipped")) {
+    //   y.classList.add("disabled")
+    //   y.classList.remove("flipped")
+    //   // }
+    //   // matchArr.splice(0, 2)
+
+    //   // matched()
+    //   matchArr.splice(0, 2)
+    // }
+    // cards.forEach((card) => card.addEventListener("click", match))
+  }
+
+  let unmatched = (x) => {
+    console.log("unmatched")
+  //   if (x.classList.includes("flipped")) {
+  //    x.classList.add("hidden")
+  //     x.classList.remove("flipped")
+  //     matchArr.splice(0, 2)
+  //   }
+  //   // cards.forEach((card) => card.addEventListener("click", match))
+
+  }
+
+
+
+
+
+  // console.log(item.dataset.value)
 
   // matchArr.push(item.dataset.value)
-
-  // console.log(matchArr)
-  // if (matchArr.length === 2) {
-  //   if (!item.classList.contains("hidden")) {
-  //     container.removeEventListener("click", match)
-  //   }
-  //   if (matchArr[0] === matchArr[1]) {
-  //     // if (item.classList.contains("flipped")) {
-  //       item.classList.add("disabled")
-  //     // }
-  //     matchArr.splice(0, 2)
-
-  //     // matched()
-  //   } else if (!matchArr[0] === matchArr[1]) {
-  //     // if (item.classList.contains("flipped")) {
-  //       item.classList.add("hidden")
-  //       item.classList.remove("flipped")
-  //     // }
-  //     matchArr.splice(0, 2)
-  //     // unmatched()
-  //   }
-  //   // console.log("there is two")
-  // }
-  // // console.log(item.dataset.value)
-
-  // // matchArr.push(item.dataset.value)
-
-
 
   // if (item != hasBeenFlipped) {
   //   hasBeenFlipped = true
@@ -267,9 +312,12 @@ let match = (e) => {
   // if (el) {
   //   item.classList.remove("hidden")
   // }
-}
-
-cards.forEach(card => card.addEventListener("click", match))
+// }
+// for (let i = 0; i < cards.length; i++) {
+//   // console.log(cards[i])
+//   cards[i].addEventListener("click", match)
+// }
+cards.forEach((card) => card.addEventListener("click", match))
 
 // can i pull the value? Maybe looking at the classes is unnecessary and redundant
 // Because if i can i just add the sheer value of the innerContent and then push that,

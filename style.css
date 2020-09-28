@@ -14,12 +14,14 @@
   align-items: center;
   justify-content: center;
 }
-.item {
+/* .item {
   font-size: 40px;
-}
+} */
 .hidden {
-  display: none;
+  font-size: 0px;
+  /* display: none; */
 }
-.flip {
-  transform: rotateY(180)
+.flipped {
+  transform: rotateY(180);
+  font-size: 40px;
 }
